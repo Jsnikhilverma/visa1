@@ -58,13 +58,13 @@ export default function VisaRequirements() {
   const [selectedCountry, setSelectedCountry] = useState("Malaysia");
 
   return (
-    <div className="bg-gradient-to-br from-amber-500/20 to-transparent backdrop-blur-lg border border-amber-500/10 text-white mt-10 rounded-2xl ">
+    <div className="bg-gradient-to-br from-amber-500/20 to-transparent backdrop-blur-lg border border-amber-500/10 text-white mt-10 rounded-2xl">
       <h1 className="text-5xl font-bold mb-6 text-center pt-20">
         Visa Requirements
       </h1>
-      <div className="max-w-7xl mx-auto px-8 py-12 flex gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 flex flex-col lg:flex-row gap-8">
         {/* Left - Selectors */}
-        <div className="w-1/2 ">
+        <div className="lg:w-1/2">
           <h2 className="text-lg font-semibold mb-4">Select a purpose:</h2>
           <div className="flex gap-4 mb-8">
             <button className="bg-[#1e273d] px-6 py-2 rounded flex items-center gap-2">
@@ -76,7 +76,7 @@ export default function VisaRequirements() {
           </div>
 
           <h2 className="text-lg font-semibold mb-4">Select a country:</h2>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {countries.map((country) => (
               <button
                 key={country.name}
@@ -99,19 +99,14 @@ export default function VisaRequirements() {
         </div>
 
         {/* Center divider */}
-        <div className="w-px bg-gray-600 opacity-40" />
+        <div className="hidden lg:block w-px bg-gray-600 opacity-40" />
 
         {/* Right - Visa Info Box */}
-        <div className="w-1/2 bg-gradient-to-br from-amber-500/10 to-transparent backdrop-blur-lg border border-amber-500/10 p-6 rounded-xl max-h-[80vh] overflow-y-auto border-2 border-amber-500/80">
+        <div className="lg:w-1/2 bg-gradient-to-br from-amber-500/10 to-transparent backdrop-blur-lg border border-amber-500/10 p-6 rounded-xl max-h-[80vh] overflow-y-auto border-2 border-amber-500/80">
           <h3 className="text-xl font-bold mb-4">Traveller Details</h3>
           <pre className="whitespace-pre-wrap leading-relaxed text-sm">
             {countryDetails[selectedCountry] || "Details coming soon..."}
           </pre>
-          {/* <div className="mt-6 flex justify-end">
-            <button className="bg-[#635bff] px-4 py-2 rounded text-white text-sm hover:bg-[#7e76ff] transition">
-              🔗 Share requirements
-            </button>
-          </div> */}
         </div>
       </div>
     </div>

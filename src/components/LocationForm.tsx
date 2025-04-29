@@ -9,7 +9,6 @@ import axios from "axios";
 
 export default function LocationForm() {
   const [countries, setCountries] = useState([]);
-
   const [selectedCountry1, setSelectedCountry1] = useState(""); // For the first dropdown
   const [selectedCountry2, setSelectedCountry2] = useState(""); // For the second dropdown
 
@@ -34,16 +33,19 @@ export default function LocationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full max-w-4xl mx-auto text-white rounded-lg shadow-lg"
+      className="w-full max-w-4xl mx-auto text-white rounded-lg shadow-lg p-4"
     >
-      <div className="flex flex-row items-end justify-between gap-4 flex-wrap">
-        <div className="flex flex-col flex-1 min-w-[100px]">
-          {/* <label htmlFor="country1" className="mb-1 font-medium">
+      <div className="flex flex-col md:flex-row items-stretch md:items-end justify-between gap-4">
+        <div className="flex flex-col flex-1 min-w-0">
+          <label
+            htmlFor="country1"
+            className="text-sm font-medium mb-1 hidden md:block"
+          >
             Your Passport
-          </label> */}
+          </label>
           <select
             id="country1"
-            className="border px-3 py-3 rounded-xl"
+            className="border px-3 py-3 rounded-xl text-white w-full"
             value={selectedCountry1}
             onChange={(e) => setSelectedCountry1(e.target.value)}
           >
@@ -56,13 +58,16 @@ export default function LocationForm() {
           </select>
         </div>
 
-        <div className="flex flex-col flex-1 min-w-[100px]">
-          {/* <label htmlFor="country2" className="mb-1 font-medium">
-            You want to go
-          </label> */}
+        <div className="flex flex-col flex-1 min-w-0">
+          <label
+            htmlFor="country2"
+            className="text-sm font-medium mb-1 hidden md:block"
+          >
+            Destination
+          </label>
           <select
             id="country2"
-            className="border px-3 py-3 rounded-xl"
+            className="border px-3 py-3 rounded-xl text-white w-full"
             value={selectedCountry2}
             onChange={(e) => setSelectedCountry2(e.target.value)}
           >
@@ -75,13 +80,6 @@ export default function LocationForm() {
           </select>
         </div>
       </div>
-
-      {/* <button
-        type="submit"
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Submit
-      </button> */}
     </form>
   );
 }

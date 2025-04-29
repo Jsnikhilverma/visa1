@@ -59,7 +59,7 @@ const VisaPage = () => {
 
       {/* Search Bar */}
       {/* Filters */}
-      <div className="flex gap-3 justify-center mb-8 mt-20">
+      <div className="flex flex-wrap gap-3 justify-center mb-8 mt-20">
         {["All", "Instant", "In a week", "In a month"].map((filter) => (
           <button
             key={filter}
